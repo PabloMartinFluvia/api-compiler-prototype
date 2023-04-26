@@ -21,7 +21,7 @@ public class Proxy {
     }
 
     public Mono<ApiResponseBody> requestRunnable(ApiCompiler apiCompiler, ApiRequestBody body){
-        ApiCompilerSpec apiSpec = workingApisSpecs.getSpecs(apiCompiler);
+        ApiSpec apiSpec = workingApisSpecs.getSpecs(apiCompiler);
         WebClient.RequestHeadersSpec<?> headersSpec = client
                 .method(apiSpec.getRequestMethod())
                 .uri(apiSpec.getRequestUrl())
@@ -34,7 +34,7 @@ public class Proxy {
 
     private WebClient.RequestHeadersSpec<?> initHeaders(
             WebClient.RequestHeadersSpec<?> headersSpec,
-            ApiCompilerSpec apiSpec){
+            ApiSpec apiSpec){
 
         Map<String,String> apiHeadersMap =apiSpec.getCommonHeaders();
         Set<String> requiredApiHeaders = apiHeadersMap.keySet();
