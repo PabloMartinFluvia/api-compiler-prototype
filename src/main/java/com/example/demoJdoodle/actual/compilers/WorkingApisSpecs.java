@@ -1,5 +1,6 @@
-package com.example.demoJdoodle.actual.apicompiler;
+package com.example.demoJdoodle.actual.compilers;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -12,15 +13,14 @@ public class WorkingApisSpecs {
     
     private Map<ApiCompiler, ApiCompilerSpec> apisMap;
 
-    public WorkingApisSpecs() {
+    @PostConstruct
+    private void init(){
         apisMap = new HashMap<>();
-        initApisMap();
-    }
-
-    private void initApisMap() {
         apisMap.put(ApiCompiler.ONLINE_CODE_COMPILER, initOnlineCodeCompilerDetails());
+        //and others...
     }
 
+    //TODO: values from properties?
     private ApiCompilerSpec initOnlineCodeCompilerDetails() {
         Map<String,String> commonHeaders = new HashMap<>();
         commonHeaders.put("X-RapidAPI-Key","2a497261e9msh06d1774713adaedp177aa0jsnfc89ff1d7af0");

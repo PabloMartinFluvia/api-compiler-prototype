@@ -1,6 +1,6 @@
 package com.example.demoJdoodle.actual;
 
-import com.example.demoJdoodle.actual.apicompiler.ApiResponseBody;
+import com.example.demoJdoodle.actual.compilers.ApiResponseBody;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;

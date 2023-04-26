@@ -1,11 +1,20 @@
 Hay que passarlo en una sola linia
-para que se ejecute jaca hace falta classe principal con método main
+para que se ejecute hace falta classe principal con método main
 
-"public class Challenge {
-    public static void main(String args[]) { //algunos compilers permiten datos inputs
-        //Parametros a testear propuestos por el creador del challenge
+"
+//IMPORTANTE: incluir imports en caso que se usen!
+
+public class Challenge {
+    public static void main(String args[]) {
+
+         //Declaración de parametros a testear propuestos por el creador del challenge
+        //algunos compilers permiten datos inputs stdin -> Buffered reader or Scanner
+        int x = lectura(); int y = lectura();
+        //VS
+        // incluir-los nosotros "hardcoded"
         int x = 3; int y = 5;
 
+        //hay que "llamar al método del alumno" -> como mínimo hay que saber que nombre tiene
         int sum = new Challenge().doSum(x,y);
 
         //Lo que el compiler devuelve:
@@ -17,4 +26,6 @@ para que se ejecute jaca hace falta classe principal con método main
         return a+b;
    }
 
-}"
+}
+
+"

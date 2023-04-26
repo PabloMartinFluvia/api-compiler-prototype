@@ -1,4 +1,4 @@
-package com.example.demoJdoodle.actual.apicompiler;
+package com.example.demoJdoodle.actual.compilers;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -10,6 +10,8 @@ import java.util.Map;
 @Builder
 @Getter
 public class ApiCompilerSpec {
+
+    //Generalizar / Augmentar / Modificar  según necesidad
 
     private Map<String,String> commonHeaders; //in both endpoints
 
@@ -25,6 +27,5 @@ public class ApiCompilerSpec {
     private HttpMethod languagesMethod;
 
     private String languagesUr;
-
 
 }

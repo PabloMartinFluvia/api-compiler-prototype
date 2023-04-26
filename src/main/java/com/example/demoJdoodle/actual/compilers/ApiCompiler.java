@@ -1,17 +1,22 @@
-package com.example.demoJdoodle.actual.apicompiler;
+package com.example.demoJdoodle.actual.compilers;
 
-//Source: https://rapidapi.com/search/online%2Bcompiler
+//See link, there many others.:
+// https://rapidapi.com/search/online%2Bcompiler
+//Also google "api code compiler"
 public enum ApiCompiler {
+
+    //to forget. Needs id + key. When singup they don't provide it. email or username + password don't work
+    //JDOODLE("https://docs.jdoodle.com/integrating-compiler-ide-to-your-application/compiler-api/rest-api"),
 
     //meh... not tried
     //CODE_X("https://rapidapi.com/jaagravseal03/api/codex7/details"),
     //5000/day + 0,05$ each extra + needs credit card for free singup + no php neither javascript/node
 
-    //testing...
+    //works correctly -> TODO: see tests. Help needed for last test in node js
     ONLINE_CODE_COMPILER("https://rapidapi.com/Glavier/api/online-code-compiler/");
     //500/day + free singup + javascrip -> node.js
 
-    //more to add...
+    //TODO: add more
 
     private String docsWeb;
 
