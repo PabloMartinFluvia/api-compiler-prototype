@@ -9,7 +9,7 @@ import java.util.Map;
 
 @Builder
 @Getter
-public class ApiCompilerSpec {
+public class ApiSpec {
 
     //Generalizar / Augmentar / Modificar  según necesidad
 

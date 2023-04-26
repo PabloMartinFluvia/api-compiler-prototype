@@ -24,7 +24,7 @@
 ### Proxy:
 1. Client pendiente de configurar. Solo se ha implementado lo mínimo necesario para poder realizar las peticiones correctamente.
 2. Desconoce **todos** los parámetros requeridos para realizar la petición.
-   1. Asociado a un objeto WorkingApisSpecs: encapsula un mapa que relaciona cada una de las apis que tengamos localizadas como disponibles (**enum**) con un objeto ApiCompilerSpec. Es este último quien debe poder proporcionar al client los datos para realizar la conexion (headers, url, secrets, etc...).
+   1. Asociado a un objeto WorkingApisSpecs: encapsula un mapa que relaciona cada una de las apis que tengamos localizadas como disponibles (**enum**) con un objeto ApiSpec. Es este último quien debe poder proporcionar al client los datos para realizar la conexion (headers, url, secrets, etc...).
    2. El método que se invoca en el proxy recibe como parámetros el enum de la API a usar (para así solicitar los specs al map) y el body (que tiene que ser "coherente" con la API indicada).
    3. Devuelve un ApiResponseBody (mono). Este tiene que poder ser mapeable para **cualquier respuesta de cualquer api**. Si la cosa se complica también se podría pasar un .class adecuado como parametro del método.
 
@@ -36,7 +36,7 @@
 
 ### APIXXX
 1. ApiCompiler: enum representando las posibles apis disponibles.
-2.  Request + Response: los dtos. Los que pueden dar problemas si hay mucha variabilidad entre apis.
-3. ApiCompilerSpec: Encapsula los detalles de como se debe conectar el proxy a una api. Lo más generalista y homogenio posible.
-4. WorkinApisSpecs: bean. Por cada posible api que tengamos, tendría que inizializar el correspondiente ApiCompilerSpec y asociarlos como clave : valor.
+2. Request + Response: los dtos. Los que pueden dar problemas si hay mucha variabilidad entre apis.
+3. ApiSpec: Encapsula los detalles de como se debe conectar el proxy a una api. Lo más generalista y homogenio posible.
+4. WorkingApisSpecs: bean. Por cada posible api que tengamos, tendría que inizializar el correspondiente ApiSpec y asociarlos como clave : valor.
 

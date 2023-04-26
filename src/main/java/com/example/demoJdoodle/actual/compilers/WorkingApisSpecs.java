@@ -11,7 +11,7 @@ import java.util.Map;
 @Component
 public class WorkingApisSpecs {
     
-    private Map<ApiCompiler, ApiCompilerSpec> apisMap;
+    private Map<ApiCompiler, ApiSpec> apisMap;
 
     @PostConstruct
     private void init(){
@@ -21,11 +21,11 @@ public class WorkingApisSpecs {
     }
 
     //TODO: values from properties?
-    private ApiCompilerSpec initOnlineCodeCompilerDetails() {
+    private ApiSpec initOnlineCodeCompilerDetails() {
         Map<String,String> commonHeaders = new HashMap<>();
         commonHeaders.put("X-RapidAPI-Key","2a497261e9msh06d1774713adaedp177aa0jsnfc89ff1d7af0");
         commonHeaders.put("X-RapidAPI-Host", "online-code-compiler.p.rapidapi.com");
-        return ApiCompilerSpec.builder()
+        return ApiSpec.builder()
                 .commonHeaders(commonHeaders)
                 .requestMethod(HttpMethod.POST)
                 .requestUrl("https://online-code-compiler.p.rapidapi.com/v1/")
@@ -35,8 +35,8 @@ public class WorkingApisSpecs {
                 .build();
     }
 
-    public ApiCompilerSpec getSpecs(ApiCompiler apiCompiler){
-        ApiCompilerSpec specs = apisMap.get(apiCompiler);
+    public ApiSpec getSpecs(ApiCompiler apiCompiler){
+        ApiSpec specs = apisMap.get(apiCompiler);
         if(specs != null){
             return specs;
         }else {
