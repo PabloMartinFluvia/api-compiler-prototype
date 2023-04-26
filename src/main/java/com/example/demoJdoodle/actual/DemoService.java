@@ -22,11 +22,15 @@ public class DemoService {
 
     private final String requestBodysPath = "json/requestBodys";
 
+    //TODO: previous steps.
     public Mono<ApiResponseBody> demoOnlineCoderCompiler(int indexToTest){
         String compilerFolder = "/online_coder_compiler";
         String bodysJson = "/examples.json";
         String jsonPath = requestBodysPath+compilerFolder+bodysJson;
         ApiRequestBody requestBody = initBody(jsonPath, ApiRequestBody[].class)[indexToTest];
+        //TODO: change previous steps. From this point our app is designed for work once:
+        //  a) we know to which api use (one object of the enum ApiCompiler)
+        //  b) The request body is ready (schema maybe depends on api used)
         return callProxy(ApiCompiler.ONLINE_CODE_COMPILER, requestBody);
     }
 

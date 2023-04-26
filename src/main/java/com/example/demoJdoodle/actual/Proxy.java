@@ -17,8 +17,7 @@ public class Proxy {
     public Proxy(WorkingApisSpecs workingApisSpec) {
         this.workingApisSpecs = workingApisSpec;
 
-        client = WebClient.create();
-        //TODO: configure
+        client = WebClient.create(); //TODO: configure
     }
 
     public Mono<ApiResponseBody> requestRunnable(ApiCompiler apiCompiler, ApiRequestBody body){

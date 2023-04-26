@@ -118,5 +118,35 @@
       "version": 4,
       "version_name": "JDK 17.0.1"
     }
+  },
+  {
+    "cpuTime": "0.01",
+    "memory": "7988",
+    "output": "15",
+    "language": {
+      "id": "python3",
+      "version": 4,
+      "version_name": "3.9.9"
+    }
+  },
+  {
+    "cpuTime": "0.00",
+    "memory": "20140",
+    "output": "15",
+    "language": {
+      "id": "php",
+      "version": 4,
+      "version_name": "8.0.13"
+    }
+  },
+  {
+    "cpuTime": "0.19",
+    "memory": "36604",
+    "output": "15",
+    "language": {
+      "id": "java",
+      "version": 4,
+      "version_name": "JDK 17.0.1"
+    }
   }
 ]
