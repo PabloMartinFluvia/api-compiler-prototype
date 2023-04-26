@@ -1,0 +1,7 @@
+{
+  "clientId": "loweriskdarwinia@protonmail.com",
+  "clientSecret": "9jfs83r90sdf",
+  "script": "<?php echo \"hello\"; ?>",
+  "language": "php",
+  "versionIndex": "0"
+}
