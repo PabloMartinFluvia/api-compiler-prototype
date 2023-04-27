@@ -1,4 +1,4 @@
-package com.example.demoJdoodle.actual.compilers;
+package com.example.demoJdoodle.compilers;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.http.HttpMethod;
@@ -11,12 +11,12 @@ import java.util.Map;
 @Component
 public class WorkingApisSpecs {
     
-    private Map<ApiCompiler, ApiSpec> apisMap;
+    private Map<ApiCompiler, ApiSpec> specsProvider;
 
     @PostConstruct
     private void init(){
-        apisMap = new HashMap<>();
-        apisMap.put(ApiCompiler.ONLINE_CODE_COMPILER, initOnlineCodeCompilerDetails());
+        specsProvider = new HashMap<>();
+        specsProvider.put(ApiCompiler.ONLINE_CODE_COMPILER, initOnlineCodeCompilerDetails());
         //and others...
     }
 
@@ -31,12 +31,12 @@ public class WorkingApisSpecs {
                 .requestUrl("https://online-code-compiler.p.rapidapi.com/v1/")
                 .requestContentType(MediaType.APPLICATION_JSON)
                 .languagesMethod(HttpMethod.GET)
-                .languagesUr("https://online-code-compiler.p.rapidapi.com/v1/languages/")
+                .languagesUrl("https://online-code-compiler.p.rapidapi.com/v1/languages/")
                 .build();
     }
 
-    public ApiSpec getSpecs(ApiCompiler apiCompiler){
-        ApiSpec specs = apisMap.get(apiCompiler);
+    public ApiSpec getConnectionSpecs(ApiCompiler apiCompiler){
+        ApiSpec specs = specsProvider.get(apiCompiler);
         if(specs != null){
             return specs;
         }else {

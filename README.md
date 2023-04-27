@@ -16,9 +16,10 @@
 2. A más cantidad de de apis de backup, más generalista tendrá que ser el diseño y, por tanto, más abstracto. Quizás incluso requiera el uso de patrones, para aconseguir el princio Open/Close.
 
 ## Situación actual:
-### Objetivo: 
+### Que se ha hecho: 
 1. Realizar peticiones funcionales a una api + tests de prueba.
 2. Diseño debería permitir que, modificando el valor de un enum (api target), la petición se realize correctamente (si el body de la petición es coherente).
+3. Si el diseño no convence: otra opción que se podría implementar són N beans proxys, cada uno con el client configurado para una API distinta. Requiere una inyección al service dinámica (para que no se tenga que tumbar la aplicación cuando se tenga que canviar de api). Quizás una factoria de proxys?
 
 
 ### Proxy:
@@ -37,7 +38,7 @@
 
 ### APIXXX
 1. ApiCompiler: enum representando las posibles apis disponibles.
-2. Request + Response: los dtos. Los que pueden dar problemas si hay mucha variabilidad entre apis.
+2. Request + Response: los dtos. Los que pueden dar problemas si hay mucha variabilidad entre apis. **ver readme en compilers.demo**
 3. ApiSpec: Encapsula los detalles de como se debe conectar el proxy a una api. Lo más generalista y homogenio posible.
 4. WorkingApisSpecs: bean. Por cada posible api que tengamos, tendría que inizializar el correspondiente ApiSpec y asociarlos como clave : valor.
 

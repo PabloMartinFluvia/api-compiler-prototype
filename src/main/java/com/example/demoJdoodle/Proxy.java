@@ -1,6 +1,6 @@
-package com.example.demoJdoodle.actual;
+package com.example.demoJdoodle;
 
-import com.example.demoJdoodle.actual.compilers.*;
+import com.example.demoJdoodle.compilers.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -11,17 +11,17 @@ import java.util.Set;
 @Component
 public class Proxy {
 
-    private final WorkingApisSpecs workingApisSpecs;
+    private final WorkingApisSpecs specsProvider;
     private WebClient client;
 
     public Proxy(WorkingApisSpecs workingApisSpec) {
-        this.workingApisSpecs = workingApisSpec;
+        specsProvider = workingApisSpec;
 
-        client = WebClient.create(); //TODO: configure
+        client = WebClient.create(); //TODO: configure + optimize
     }
 
     public Mono<ApiResponseBody> requestRunnable(ApiCompiler apiCompiler, ApiRequestBody body){
-        ApiSpec apiSpec = workingApisSpecs.getSpecs(apiCompiler);
+        ApiSpec apiSpec = specsProvider.getConnectionSpecs(apiCompiler);
         WebClient.RequestHeadersSpec<?> headersSpec = client
                 .method(apiSpec.getRequestMethod())
                 .uri(apiSpec.getRequestUrl())
@@ -40,7 +40,8 @@ public class Proxy {
         Set<String> requiredApiHeaders = apiHeadersMap.keySet();
         for (String requiredHeader : requiredApiHeaders){
             String valueOfRequierdHeader = apiHeadersMap.get(requiredHeader);
-            headersSpec = headersSpec.header(requiredHeader,valueOfRequierdHeader);
+            headersSpec = headersSpec
+                    .header(requiredHeader,valueOfRequierdHeader);
         }
         return headersSpec;
     }

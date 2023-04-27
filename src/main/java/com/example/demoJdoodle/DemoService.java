@@ -1,6 +1,6 @@
-package com.example.demoJdoodle.actual;
+package com.example.demoJdoodle;
 
-import com.example.demoJdoodle.actual.compilers.*;
+import com.example.demoJdoodle.compilers.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.ClassPathResource;

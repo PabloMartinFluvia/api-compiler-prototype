@@ -1,4 +1,4 @@
-package com.example.demoJdoodle.actual.compilers;
+package com.example.demoJdoodle.compilers;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -26,6 +26,6 @@ public class ApiSpec {
 
     private HttpMethod languagesMethod;
 
-    private String languagesUr;
+    private String languagesUrl;
 
 }

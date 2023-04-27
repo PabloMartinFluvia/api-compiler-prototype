@@ -1,6 +1,7 @@
-package com.example.demoJdoodle.actual;
+package com.example.demoJdoodle;
 
-import com.example.demoJdoodle.actual.compilers.ApiResponseBody;
+import com.example.demoJdoodle.DemoService;
+import com.example.demoJdoodle.compilers.ApiResponseBody;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -27,7 +28,7 @@ public class DemoServiceTest {
     @Autowired
     private DemoService service;
 
-    private ApiResponseBody[] expecteds;
+    private ApiResponseBody expected;
 
     private static final String responseBodysPath = "json/responseBodys";
 
@@ -38,12 +39,14 @@ public class DemoServiceTest {
         String compilerFolder = "/online_coder_compiler";
         String bodysJson = "/examples.json";
         String jsonPath = responseBodysPath+compilerFolder+bodysJson;
-        expecteds = initBody(jsonPath, ApiResponseBody[].class);
+        expected = initBody(jsonPath, ApiResponseBody[].class)[indexToTest];
+
         Mono<ApiResponseBody> success = service.demoOnlineCoderCompiler(indexToTest);
+
         StepVerifier.create(success)
                 .assertNext(response -> {
                     System.out.println(response.getOutput());
-                    assertEquals(expecteds[indexToTest].getOutput(),response.getOutput());
+                    assertEquals(expected.getOutput(),response.getOutput());
                 })
                 .verifyComplete();
     }
